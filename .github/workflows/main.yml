@@ -21,7 +21,10 @@ jobs:
     if: ${{ always() }}
     steps:
       - name: Run multiline script
+        env:
+          SECRET_VARIABLE: ${{ secrets.VARIABLE }}
         run: |
           echo "This is a multiline script."
           echo "It can contain multiple commands."
           echo "This script runs after the Python script."
+          echo "Secret variable value: $SECRET_VARIABLE"
